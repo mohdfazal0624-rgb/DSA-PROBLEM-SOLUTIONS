@@ -3,7 +3,7 @@ public:
 int countballs(vector<int>& arr,int middy){
      int ball=1;
      
-     
+     sort(arr.begin(),arr.end());
      
      
      int force=arr[0];
