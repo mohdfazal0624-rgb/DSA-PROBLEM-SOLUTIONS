@@ -1,16 +1,19 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-sort(s.begin(),s.end());
-sort(t.begin(),t.end());
-if(s.length()!=t.length())
-return false;
+vector<int> fs(26,0);
+vector<int> ft(26,0);
 for(int i=0;i<s.length();i++){
-    if(s[i]!=t[i])
-    return false;
+     fs[s[i]-'a']++;
 }
-return true;
-     
+for(int i=0;i<t.length();i++){
+     ft[t[i]-'a']++;}
+     for(int i=0;i<26;i++){
+        if(fs[i]!=ft[i])
+        return false;
+     }
+  return true;
+  
 
     }
 };
