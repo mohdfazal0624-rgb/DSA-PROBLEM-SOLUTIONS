@@ -1,36 +1,30 @@
 class Solution {
 public:
     string addStrings(string num1, string num2) {
-        string s = "";
-        int add = 0;
 
-        int n1 = num1.size(), n2 = num2.size();
+        int i = num1.size() - 1;
+        int j = num2.size() - 1;
 
-        if (n1 < n2) {
-            for (int i = 0; i < n2 - n1; i++)
-                num1 = "0" + num1;
+        int carry = 0;
+        string ans = "";
+
+        while (i >= 0 || j >= 0 || carry) {
+
+            int sum = carry;
+
+            if (i >= 0)
+                sum += num1[i--] - '0';
+
+            if (j >= 0)
+                sum += num2[j--] - '0';
+
+            ans.push_back((sum % 10) + '0');
+
+            carry = sum / 10;
         }
 
-        if (n2 < n1) {
-            for (int i = 0; i < n1 - n2; i++)
-                num2 = "0" + num2;
-        }
+        reverse(ans.begin(), ans.end());
 
-        for (int i = num1.length() - 1; i >= 0; i--) {
-            add += (num1[i] - '0') + (num2[i] - '0');
-
-            if (add >= 10) {
-                s = to_string(add - 10) + s;
-                add = 1;
-            } else {
-                s = to_string(add) + s;
-                add = 0;
-            }
-        }
-
-        if (add)
-            s = "1" + s;
-
-        return s;
+        return ans;
     }
 };
