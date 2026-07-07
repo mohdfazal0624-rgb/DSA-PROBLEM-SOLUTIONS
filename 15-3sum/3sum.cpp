@@ -7,7 +7,7 @@ public:
 
         int n = nums.size();
 
-        for (int i = 0; i < n - 2; i++) {
+        for (int i = 0; i < n ; i++) {
 
             // Skip duplicate first elements
             if (i > 0 && nums[i] == nums[i - 1])
@@ -30,8 +30,8 @@ public:
                         left++;
 
                     // Skip duplicate third elements
-                    while (left < right && nums[right] == nums[right + 1])
-                        right--;
+                   // while (left < right && nums[right] == nums[right + 1])
+                     //   right--;
                 }
                 else if (sum < 0) {
                     left++;
