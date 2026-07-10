@@ -14,8 +14,8 @@ public:
     int val=presum[j]-k;
     if(m.find(val)!=m.end()) 
     count +=m[val];
-    if(m.find(presum[j])==m.end())
-    m[presum[j]] =0;
+    // if(m.find(presum[j])==m.end())
+    // m[presum[j]] =0;
     m[presum[j]]++;
     }
 return count ;
