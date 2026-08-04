@@ -7,7 +7,6 @@ public:
         while(i!=nums.size()-1){
             if(nums[i]+1==nums[i+1]){
                 i++;
-                continue;
             }
             else{
                 l.push_back(nums[i]+1);
