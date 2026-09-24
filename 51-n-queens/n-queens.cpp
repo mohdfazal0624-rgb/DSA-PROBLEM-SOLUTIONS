@@ -27,16 +27,21 @@ bool issafe(vector<string>&board,int row,int col,int n){
 
 void nqueen(vector<string>&board,int row,int n,vector<vector<string>>& ans){
 
-    if(row==n){
+    if(row==n){ // successfully placed the n queens over n rows i.e got ont valid ans.
         ans.push_back(board);
         return;
     }
     for(int j=0;j<n;j++){
+        //check if the position is safe 
         if(issafe(board,row,j,n)){
+            // if yes then replace '.' with the 'Q'
         board[row][j]='Q';
+        // recursive call
          nqueen(board,row+1,n,ans);
+         // imp backtracking step
         board[row][j]='.';
-    }}
+    }
+    }
 
 }
     vector<vector<string>> solveNQueens(int n) {
