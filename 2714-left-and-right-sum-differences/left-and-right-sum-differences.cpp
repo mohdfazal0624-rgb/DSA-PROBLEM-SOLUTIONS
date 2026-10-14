@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> leftRightDifference(vector<int>& nums) {
+        vector<int >  left(nums.size(),0);
+         vector<int > right(nums.size(),0);
+         vector<int > ans(nums.size(),0);
+
+         for(int i=1;i<nums.size();i++){
+            left[i]+=nums[i-1]+left[i-1];
+         }
+         for(int i=nums.size()-1;i>0;i--){
+            right[i-1]=nums[i]+right[i];
+         }
+         for(int i=0;i<nums.size();i++){
+            ans[i]=abs(left[i]-right[i]);
+         }
+         return ans;
+
+            }
+};
